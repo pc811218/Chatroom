@@ -12,9 +12,14 @@
 <input id="send" type="button" value="sendEcho">
 <p></p>
 
+<br>
+<br>
+<input id="disconn" type="button" value="離線">
+
 <script type="text/javascript">
 	var wsUri = "ws://localhost:8081/Chatroom/echo";
 	var webSocket = new WebSocket(wsUri);
+	
 	webSocket.onopen = function(event) {
 		alert("WebSocket 成功連線");
 	};
@@ -23,6 +28,10 @@
         var msg = evt.data;
         $('p').text(msg);
     };
+    
+	webSocket.onclose = function(event) {
+		alert('已離線');
+	};
 	
 	$('#send').on('click',function(){
 		var input = $('#input').val();
