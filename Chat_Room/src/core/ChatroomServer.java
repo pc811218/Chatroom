@@ -26,13 +26,15 @@ public class ChatroomServer {
 	
 	@OnError
 	public void onError(Session userSession, Throwable e){
+		System.out.println(userSession.getId()+":"+e.getMessage());
 		e.printStackTrace();
 	}
 	
 	
     @OnMessage
-    public String handleMessage(String msg) {
-    	return "Your message is: " + msg;
+    public String handleMessage(String msg,Session userSession) {
+    	String id = userSession.getId();
+    	return id+ " : " + msg;
     }
     
 	@OnClose
