@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 	   http://www.springframework.org/schema/mvc
+ 	   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+ 	   http://www.springframework.org/schema/context
+ 	   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+       <!-- 要映射多個 actions 時，可使用「*」星號表示 -->
+       <!-- 該「*」星號字符所匹配的任何文字，將被視為在控制器「Controller類別內的方法名稱」-->
+       <bean name="/helloAction/*.do" class="com.spring4.mvc.myController1.Hello_Action_Controller1" />
+
+       <!-- Internal Resource View (內部資源視圖): -->
+       <!-- 在Spring MVC中，對於好的做法，它總是建議把整個Views或JSP文件放在「WEB-INF」目錄底下， 以保護其免受透過手動輸入網址而直接存取(direct access) -->
+       <!-- 放在「WEB-INF」目錄底下的這些Views或JSP文件，被命名為Internal Resource View (內部資源視圖)， 因為它只能由透過servlet或Spring控制器類別來存取 -->
+	   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	      <property name="prefix" value="/WEB-INF/views/" />
+	      <property name="suffix" value=".jsp" />
+	   </bean>
+	
+	   <!-- 靜態資源目錄resources，存放如 CSS/JavaScript...等 -->
+	   <mvc:resources mapping="/resources/**" location="/resources/" />
+	
+       <!-- Spring3.1開始支援-方法級別驗證 (JSR-349 Bean Validation 1.1) -->
+	   <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+
+</beans>

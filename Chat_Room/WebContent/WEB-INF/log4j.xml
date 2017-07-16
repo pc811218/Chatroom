@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- 設置ConsoleAppender讓logger輸出至console -->
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="DEBUG" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yy/MM/dd HH:mm:ss}][%p][%C-%L] %m%n"/>
+        </layout>
+    </appender>
+	
+		<!-- 每日日誌     -->
+	<appender name="dailyLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/logs_out.log "/>
+		<param name="threshold" value="debug"/>
+		<param name="immediateFlush" value="true"/>
+		<param name="encoding" value="UTF-8"/>
+		<param name="append" value="true"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy/MMM/dd HH:mm:ss}] - %m%n" />
+		</layout>
+	</appender>
+	
+    <!-- rootLogger -->
+    <root>
+        <priority value ="error" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="dailyLog"/>
+    </root>
+
+    <!-- 設置logger -->
+    <logger name="website" additivity="false" >
+      <level value="DEBUG" />
+      <appender-ref ref="consoleAppender"/>
+      <appender-ref ref="dailyLog"/>
+    </logger>
+    
+	<!-- 紀錄SQL指令     -->
+    <logger name="org.springframework.jdbc.core.JdbcTemplate">
+  		<level value="debug" />
+	</logger>
+
+	<logger name="org.springframework.jdbc.core.StatementCreatorUtils">
+	  <level value="debug" />
+	</logger>
+    
+
+
+</log4j:configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+
+	<!-- Account Start-->
+	
+	<Account.checkAccount>
+		SELECT account,password,name FROM User_info WHERE account=? and password=?
+	</Account.checkAccount>
+	
+	<Account.addAccount>
+		insert into User_info (account,password,name) values(?,?,?)
+	</Account.addAccount>
+	<!-- Account End-->
+	
+</sqls>
