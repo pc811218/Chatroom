@@ -12,13 +12,14 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
+//Server端URL寫法，宣告參數名稱寫法: (EndPoint)/{param1}/{param2}/{param3}/......
 @ServerEndpoint("/ChatServer/{account}/{name}")
 public class ChatroomServer {
 	
 //	private static final Set<Session> allSessions = Collections.synchronizedSet(new HashSet<Session>());
 	private static final Map<Session,String> allSessions = new Hashtable<Session,String>();
 	
-	
+	//接收參數用法 : @PathParam("param1") String *variable*
 	@OnOpen
 	public void onOpen(@PathParam("account") String account,@PathParam("name") String name, Session userSession) {
 		String user = name+"("+account+")";
@@ -55,6 +56,7 @@ public class ChatroomServer {
 		for (Session session : allSessions.keySet()) {
 			if (session.isOpen()) 
 				session.getAsyncRemote().sendText(message);
+			
 		}
 	}
 	

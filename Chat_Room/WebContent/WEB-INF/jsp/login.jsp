@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
 	<link type="text/css" href="css/roomStyle.css" rel="stylesheet" />
 	<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
 	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
@@ -100,18 +103,18 @@
 				<tr>
 					<td><span class="short_label">使用者帳號 :</span></td>
 					<td>
-						<span class="short_text"><input name="userName" value="${param.userName}" type="text"/></span>
+						<span class="short_text"><input class="form-control" name="userName" value="${param.userName}" type="text"/></span>
 					</td>
 				</tr>
 				<tr>
 					<td><span class="short_text">使用者密碼 : </span></td>
 					<td>
-						<span class="short_text"><input name="password" type="password"/></span>
+						<span class="short_text"><input class="form-control" name="password" type="password"/></span>
 					</td>
 				</tr>
 				<tr>
-					<td><span><input id="login_button" type="submit" value="登入" /></span></td>
-					<td><span><input id="regist_button" type="button" value="註冊" /></span></td>
+					<td><span><input class="btn btn-default" id="login_button" type="submit" value="登入" /></span></td>
+					<td><span><input class="btn btn-warning" id="regist_button" type="button" value="註冊" /></span></td>
 				</tr>
 				
 			</table>
