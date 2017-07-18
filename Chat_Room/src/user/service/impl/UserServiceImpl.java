@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
 			udp = accountDAO.InsertOneData(account, pswdMD5, name);
 		} catch (Exception e) {
 			//錯誤處理 ， 有問題直接回傳0
+			e.printStackTrace();
 			return 0;	
 		}
 		
