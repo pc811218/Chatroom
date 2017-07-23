@@ -29,7 +29,7 @@
 	<div>
 		<span>${name}: </span>
 		<form class="form-inline">
-			<input id="input" type="text" class="form-control" placeholder="想說些什麼嗎">
+			<input id="input" type="text" class="form-control" placeholder="想說些幹話嗎">
 			<input id="send" type="button" value="send" class="btn btn-primary">
 		</form>
 		
