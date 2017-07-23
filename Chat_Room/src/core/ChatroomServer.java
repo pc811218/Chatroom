@@ -60,5 +60,8 @@ public class ChatroomServer {
 		}
 	}
 	
-	
+	public static Map<Session,String> getAllUsers(){
+		
+		return allSessions;
+	}
 }

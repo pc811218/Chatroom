@@ -15,8 +15,16 @@
 		<h2>X未連線</h2>
 		<input id="disconn" type="button" value="離線" class="btn btn-danger">
 		<input id="getconn" type="button" value="連線" class="btn btn-success">
-		
-        	<textarea id="messagesArea" class="panel message-area" readonly ></textarea>
+		<div class="row">
+        	<div class="col-md-8">
+	        	<textarea id="messagesArea" class="panel" rows="10" readonly ></textarea>
+        	</div>
+			<div class="col-md-4">
+				<p>user1</p>
+				<p>user2</p>
+				<p>user3</p>
+			</div>
+		</div>
 
 	<div>
 		<span>${name}: </span>
